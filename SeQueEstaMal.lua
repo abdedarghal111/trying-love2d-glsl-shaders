@@ -1,13 +1,16 @@
----local Cube = require("utility.Cube")
+local Cube = require("utility.Cube")
 local loop
 
-local shader = love.graphics.newShader([[
+local f = io.open("shader.glsl","r")
+local shadContent = f:read("a")
+f:close()
+local shader = love.graphics.newShader(shadContent)
 
-]])
-
---local cube = Cube.new()
+local cube = Cube.new(0,0,love.graphics.getWidth(),love.graphics.getHeight())
 loop = function ()
-    --cube:draw()
+    love.graphics.setShader(shader)
+    cube:draw()
+    love.graphics.setShader()
 end
 
 return loop
