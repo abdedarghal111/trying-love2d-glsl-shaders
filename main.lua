@@ -1,14 +1,14 @@
-local SeQueEstaMal
+local fuego = require("fuego")
 
 function love.load()
-    SeQueEstaMal = require("SeQueEstaMal")
+    fuego = require("fuego")
 end
 
-function love.update()
-    
+function love.update(dt)
+    fuego:update(dt)
 end
 
 
 function love.draw()
-    SeQueEstaMal()
+    fuego:draw()
 end
